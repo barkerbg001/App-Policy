@@ -1,0 +1,62 @@
+:root{
+  --bg: #fff;
+  --text: #111;
+  --muted: #555;
+  --card: #f6f7fb;
+  --accent: #0a84ff;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #0b0b0d;
+    --text: #e6e6e6;
+    --muted: #9aa0a6;
+    --card: #0f1113;
+    --accent: #1e90ff;
+  }
+}
+
+/* Per-page accent overrides (set on <body data-accent="name">) */
+body[data-accent="cineverse"] { --accent: #cc0000; }
+body[data-accent="barkify"] { --accent: #007BFF; }
+
+/* Base layout */
+html,body{ height:100%; margin:0; padding:0; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; }
+a{ color:inherit; }
+
+.container{ max-width:1000px; margin:0 auto; padding:28px; box-sizing:border-box; min-height:100vh; display:flex; flex-direction:column; }
+header{ margin-bottom:18px; }
+
+h1{ font-size:28px; margin:0 0 8px 0; }
+h2{ font-size:20px; margin:22px 0 10px 0; }
+p{ line-height:1.6; margin:0 0 12px 0; }
+ul{ margin:0 0 12px 18px; }
+li{ margin-bottom:8px; }
+
+.last-updated{ color:var(--muted); font-size:13px; margin-top:6px; }
+.lead{ color:var(--muted); }
+
+/* Cards/grid used on index hub */
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:22px; }
+.card{ background:var(--card); border-radius:12px; padding:18px; text-decoration:none; color:inherit; border:1px solid rgba(0,0,0,0.04); transition:transform .12s ease, box-shadow .12s ease; display:flex; flex-direction:column; gap:6px; }
+.card:hover{ transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.08); }
+.card h2{ margin:0; font-size:18px; }
+.card p{ margin:0; color:var(--muted); font-size:14px; }
+
+.note{ margin-top:12px; color:var(--muted); font-size:13px; }
+.footer{ margin-top:auto; color:var(--muted); font-size:13px; padding-top:18px; }
+
+/* Utility classes used across pages */
+.container .highlight{ background-color: #fff3cd; padding:15px; border-left:4px solid #ffc107; margin:20px 0; }
+body[data-accent="barkify"] .container .highlight{ background-color:#fff3cd; }
+.contact-info{ background-color: #f8f9fa; padding:20px; border-radius:8px; margin-top:20px; }
+.footer-block{ text-align:center; margin-top:40px; padding-top:20px; border-top:1px solid rgba(0,0,0,0.06); color:var(--muted); }
+
+.app-name{ font-size:2.5rem; font-weight:bold; margin-bottom:10px; color:var(--accent); }
+.back{ background:none;border:1px solid var(--muted); color:var(--muted); padding:6px 10px; border-radius:6px; cursor:pointer; }
+.italic{ font-style:italic; opacity:0.85; margin-top:20px; }
+
+/* Small responsive tweaks */
+@media (max-width:480px){
+  .container{ padding:16px; }
+  .app-name{ font-size:1.8rem; }
+}
